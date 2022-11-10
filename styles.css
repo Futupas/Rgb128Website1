@@ -1,3 +1,70 @@
 * {
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+#simple {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+#simple.removing {
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+
+body > div:not(#simple) {
+    display: block;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    height: 100vh;
+    background-color: red;
+}
+#about {
+    background-color: yellow;
+}
+#gallery {
+    background-color: green;
+    flex-wrap: wrap;
+}
+#gallery > .art-preview{
+    display: inline-flex;
+    width: 200px;
+    max-width: 100%;
+    min-height: 300px;
+    border: 1px solig black;
+    background-color: white;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: transform 1s linear, opacity 1s linear;
+    /* transform: rotate(10deg); */
+}
+#gallery > .art-preview.bottom{
+    transform: translateY(200px);
+    opacity: .5;
+}
+#gallery > .art-preview.top{
+    transform: translateY(-200px);
+    opacity: .5;
+}
+#contacts {
+    background-color: blue;
+
+}
+
+#test-div {
+    height: 150vh;
 }
