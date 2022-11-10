@@ -16,15 +16,20 @@ function checkSimpleDiv() {
 window.addEventListener('scroll', checkSimpleDiv);
 
 function checkGalleryDiv() {
-    const artPreview = galleryArts[0];
-    const { offsetTop, offsetHeight } = galleryArts[0];
-    const screenHeight = document.documentElement.clientHeight;
-    const scrollY = window.scrollY;
+    for (const artPreview of galleryArts) {
+        const { offsetTop, offsetHeight } = galleryArts[0];
+        const screenHeight = document.documentElement.clientHeight;
+        const scrollY = window.scrollY;
 
-    const isTop = offsetTop + offsetHeight <= scrollY;
-    const isBottom = offsetTop >= scrollY + screenHeight;
+        // const isTop = offsetTop + offsetHeight <= scrollY; // Not center
+        // const isBottom = offsetTop >= scrollY + screenHeight; // Not center
+        const isTop = offsetTop + (offsetHeight / 2) <= scrollY; // Center
+        const isBottom = offsetTop >= scrollY + screenHeight - (offsetHeight / 2); // Center
+        console.log((isTop ? 'top' : ''), (isBottom ? 'bottom' : ''));
 
-    isTop ? artPreview.classList.add('top') : artPreview.classList.remove('top');
-    isBottom ? artPreview.classList.add('bottom') : artPreview.classList.remove('bottom');
+        isTop ? artPreview.classList.add('top') : artPreview.classList.remove('top');
+        isBottom ? artPreview.classList.add('bottom') : artPreview.classList.remove('bottom');
+    }
+    
 }
 window.addEventListener('scroll', checkGalleryDiv);
