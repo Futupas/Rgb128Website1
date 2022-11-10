@@ -66,5 +66,5 @@ body > div:not(#simple) {
 }
 
 #test-div {
-    height: 150vh;
+    min-height: 150vh;
 }

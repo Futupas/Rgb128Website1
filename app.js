@@ -17,7 +17,7 @@ window.addEventListener('scroll', checkSimpleDiv);
 
 function checkGalleryDiv() {
     for (const artPreview of galleryArts) {
-        const { offsetTop, offsetHeight } = galleryArts[0];
+        const { offsetTop, offsetHeight } = artPreview;
         const screenHeight = document.documentElement.clientHeight;
         const scrollY = window.scrollY;
 
